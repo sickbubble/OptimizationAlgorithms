@@ -13,7 +13,7 @@ namespace OptimizationAlgorithms
     }
     public interface IFitnessFunction
     {
-        double Evaluate(IParticle particle);
+        double Evaluate(double[] x, double[] y);
 
     }
 }

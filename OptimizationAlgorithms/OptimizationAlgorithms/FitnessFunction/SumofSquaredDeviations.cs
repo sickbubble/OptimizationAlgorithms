@@ -1,4 +1,5 @@
 ﻿using OptimizationAlgorithms.Particles;
+using OptimizationAlgorithms.PSOObjects.Particles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,23 @@ namespace OptimizationAlgorithms.FitnessFunction
 {
     class SumofSquaredDeviations : IFitnessFunction
     {    
-        double IFitnessFunction.Evaluate(IParticle particle)
+        double IFitnessFunction.Evaluate(double[] x, double[] y)
         {
-            double fitness = 0;
+            if (x.Length != y.Length)
+            {
+                throw new ArgumentException("Input arrays must have the same length.");
+            }
 
-            particle.SetFitness(fitness);
-            return fitness;
+            double sum = 0.0;
+            for (int i = 0; i < x.Length; i++)
+            {
+                sum += Math.Pow((x[i] - y[i]), 2);
+            }
+
+            return sum;
+
+
+            
         }
     }
 }

@@ -16,7 +16,7 @@ namespace OptimizationAlgorithms.Particles
 
         void SetFitness(double fitness);
 
-        void UpdateVelocity(double inertiWeight, double cognitiveLearningFactor, double socialLearningFactor);
+        void UpdateVelocity(double inertiWeight, double cognitiveLearningFactor, double socialLearningFactor, double[] gbest);
         void UpdatePosition();
 
         double [] Velocity { get; set; }
@@ -24,6 +24,8 @@ namespace OptimizationAlgorithms.Particles
 
         int Dimension { get;  }
         void SetDimension(int dimension);
+
+        void CheckPersonalBest(double fitness);
 
 
 

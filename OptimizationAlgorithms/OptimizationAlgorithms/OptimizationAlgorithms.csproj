@@ -40,13 +40,16 @@
     <Compile Include="FitnessFunction\SumofSquaredDeviations.cs" />
     <Compile Include="FitnessFunction\IFitnessFunction.cs" />
     <Compile Include="PSOObjects\IProduct.cs" />
-    <Compile Include="PSOObjects\Particles\Class1.cs" />
+    <Compile Include="PSOObjects\Particles\LatticeParticle.cs" />
+    <Compile Include="PSOObjects\Particles\ParticleFactory.cs" />
+    <Compile Include="PSOObjects\Swarms\LatticeModelSwarm.cs" />
     <Compile Include="PSOObjects\Swarms\SwarmFactory.cs" />
+    <Compile Include="Types\IObserver.cs" />
     <Compile Include="Types\IOptimizationAlgorithm.cs" />
     <Compile Include="PSOObjects\Particles\IParticle.cs" />
     <Compile Include="Types\PSOAlgorithm.cs" />
-    <Compile Include="PSOObjects\Particles\Particle.cs" />
-    <Compile Include="PSOObjects\Swarms\Swarm.cs" />
+    <Compile Include="PSOObjects\Particles\BaseParticle.cs" />
+    <Compile Include="PSOObjects\Swarms\BaseSwarm.cs" />
     <Compile Include="PSOObjects\Swarms\ISwarm.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

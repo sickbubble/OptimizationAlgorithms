@@ -1,4 +1,6 @@
-﻿using OptimizationAlgorithms.PSOObjects;
+﻿using OptimizationAlgorithms.Particles;
+using OptimizationAlgorithms.PSOObjects;
+using OptimizationAlgorithms.PSOObjects.Swarms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,15 @@ namespace OptimizationAlgorithms.Swarms
     {
         public IProduct Create()
         {
-            return new Swarm();
+            return new BaseSwarm();
         }
+
+        public LatticeModelSwarm CreateLatticeModelSwarm(List<IParticle> particles) 
+        {
+            LatticeModelSwarm latticeSwarm = new LatticeModelSwarm(particles);
+
+            return latticeSwarm;
+        }
+
     }
 }

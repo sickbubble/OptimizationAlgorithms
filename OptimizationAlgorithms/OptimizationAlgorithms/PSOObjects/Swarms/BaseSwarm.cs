@@ -38,6 +38,11 @@ namespace OptimizationAlgorithms.Swarms
             _GlobalBestPosition = globalBest;
         }
 
+        public void SetGlobalBest(double globalBest)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
     }
