@@ -84,9 +84,16 @@ namespace OptimizationAlgorithms.Particles
             _Dimension = dimension;
         }
 
-        public void UpdateVelocity(double inertiWeight, double cognitiveLearningFactor, double socialLearningFactor)
+     
+
+        public void CheckPersonalBest(double fitness)
         {
-            throw new NotImplementedException();
+            if (this.Fitness > fitness)
+            {
+                this.PersonalBestFitness = fitness;
+                this.PersonalBestPostion = this.Position;
+
+                }
         }
 
         #endregion

@@ -1,4 +1,6 @@
 ﻿using OptimizationAlgorithms.Particles;
+using OptimizationAlgorithms.PSOObjects.Particles;
+using OptimizationAlgorithms.PSOObjects.Swarms;
 using OptimizationAlgorithms.Swarms;
 using System;
 using System.Collections.Generic;
@@ -94,28 +96,36 @@ namespace OptimizationAlgorithms.Types
 
         private double _GlobalBest;
 
-        void CheckGlobalBest(IParticle particle) 
+        void CheckGlobalBest(IParticle particle)
         {
-            if (particle.Fitness > _Swarm.GlobalBestFitness)
+            if (particle.Fitness < _Swarm.GlobalBestFitness)
             {
                 _Swarm.SetGlobalBestPosition(particle.PersonalBestPostion);
+                _Swarm.GlobalBestFitness = particle.Fitness;
                 NotifyNewGlobalBest(particle.Fitness, particle.Position);
             }
+        }
+        double EvaluateFitness(IParticle particle)
+        {
+            var fitness = _FitnessFunction.Evaluate((particle as LatticeParticle).DisplacementProfile, (_Swarm as LatticeModelSwarm).TargetDisplacementProfile);
+            particle.SetFitness(fitness);
+            return fitness;
         }
 
         public override void Run()
         {
             bool runAlgorithm = true;
-                foreach (var particle in _Swarm.Particles)
-                {
-                    _FitnessFunction.Evaluate(particle);
-                }
+            foreach (var particle in _Swarm.Particles)
+            {
+                _FitnessFunction.Evaluate((particle as LatticeParticle).DisplacementProfile, (_Swarm as LatticeModelSwarm).TargetDisplacementProfile);
+
+            }
             while (runAlgorithm)
             {
                 foreach (var particle in _Swarm.Particles)
                 {
                     UpddateParticle(particle);
-                    _FitnessFunction.Evaluate(particle);
+                    particle.CheckPersonalBest(EvaluateFitness(particle));
                     CheckGlobalBest(particle);
                 }
             }
@@ -128,7 +138,7 @@ namespace OptimizationAlgorithms.Types
 
         #region Inıtialize
 
-        public void SetAlgorithmParams(IFitnessFunction fitnessFunction, 
+        public void SetAlgorithmParams(IFitnessFunction fitnessFunction,
             ISwarm swarm,
             double inertiaWeight,
             double cognitiveLearningFactor,
@@ -156,7 +166,7 @@ namespace OptimizationAlgorithms.Types
 
         private void UpdateParticleVelocity(IParticle particle)
         {
-            particle.UpdateVelocity(_InertiaWeight,_CognitiveLearningFactor,_SocialLearnigFactor);
+            particle.UpdateVelocity(_InertiaWeight, _CognitiveLearningFactor, _SocialLearnigFactor, _Swarm.GlobalBestPosition);
 
         }
 
