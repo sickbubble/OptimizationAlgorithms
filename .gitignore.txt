@@ -1,17 +1,59 @@
-# Ignore all files and directories except source code
-*
-
-# Include only source code files
-!src/
-!*.cs
-!*.vb
-!*.cpp
-!*.java
-# Add more file extensions if needed
-
-# Exclude build artifacts
+# Exclude build output
 bin/
 obj/
 
-# Exclude Debug folder within obj/
-obj/Debug/
+# Exclude NuGet packages
+*.nupkg
+**/packages/
+
+# Exclude user-specific files
+*.suo
+*.user
+*.userprefs
+*.vs/
+.vscode/
+
+# Exclude build and publish files
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.pgn
+*.pgs
+*.sbr
+*.swp
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.dbmdl
+*.jfm
+*.msbuildlog
+*.*.user
+*.dbproj.*
+*.dataport
+*.opensdf
+*.sln.docstates
+
+# Exclude Visual Studio files
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+build.log
+*.userprefs
