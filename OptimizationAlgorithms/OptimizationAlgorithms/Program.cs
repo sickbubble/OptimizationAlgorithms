@@ -18,6 +18,7 @@ namespace OptimizationAlgorithms
             int numParticles = 10;
             int numDimensions = 2;
 
+
             // Initialize the particles
             ParticleFactory particleFactory = new ParticleFactory();
             var particles = new List<IParticle>();
@@ -32,7 +33,7 @@ namespace OptimizationAlgorithms
             SwarmFactory swarmFactory = new SwarmFactory();
 
             // Initialize the Swarm
-            ISwarm swarm =  swarmFactory.CreateLatticeModelSwarm(particles);
+            ISwarm swarm =  swarmFactory.CreateLatticeModelSwarm(particles,new double[10]);
             
 
             // Initialize the PSOAlgorithm
@@ -56,6 +57,13 @@ namespace OptimizationAlgorithms
         public void NotifyNewGlobalBest(double fitness, double[] position)
         {
             Console.WriteLine($"New global best solution found with fitness value {fitness} and position vector [{string.Join(", ", position)}].");
+        }
+
+     
+
+        public void UpdateResult(IParticle particle)
+        {
+            throw new NotImplementedException();
         }
     }
 }

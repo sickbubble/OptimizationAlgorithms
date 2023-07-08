@@ -21,13 +21,13 @@ namespace OptimizationAlgorithms.Swarms
         private List<IParticle> _Particles;
         private double _GlobalBestFitness;
         private double[] _GlobalBestPosition;
+        private double[] _BestResult;
 
 
 
         public double GlobalBestFitness { get => _GlobalBestFitness; set => _GlobalBestFitness = value; }
         public double[] GlobalBestPosition { get => _GlobalBestPosition; set => _GlobalBestPosition = value; }
-
-
+        public double[] BestResult { get => _BestResult; set => _BestResult = value; }
 
         public void SetGlobalBestFitness(double globalBest)
         {

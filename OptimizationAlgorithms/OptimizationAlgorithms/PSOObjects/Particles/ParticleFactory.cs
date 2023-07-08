@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OptimizationAlgorithms.PSOObjects.Particles
 {
-    class ParticleFactory : IFactory
+    public class ParticleFactory : IFactory
     {
         public ParticleFactory()
         {

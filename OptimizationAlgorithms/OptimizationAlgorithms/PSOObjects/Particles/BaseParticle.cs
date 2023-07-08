@@ -24,13 +24,17 @@ namespace OptimizationAlgorithms.Particles
         public double[] Position { get => _Position; set => _Position = value; }
         public int Dimension { get => _Dimension; private set => _Dimension = value; }
         public double PersonalBestFitness { get => _PersonalBestFitness; set => _PersonalBestFitness = value; }
+        public double[] Result { get => _Result; set => _Result = value; }
+        public int ID { get => _ID; set => _ID = value; }
 
-        private double[] _PersonalBestPosition;
-        private double _Fitness;
-        private double _PersonalBestFitness;
-        private double[] _Velocity;
-        private double[] _Position;
-        private int _Dimension;
+        double[] _PersonalBestPosition;
+        double _Fitness = 100;
+        double _PersonalBestFitness = 100;
+        double[] _Velocity;
+        double[] _Position;
+        int _Dimension;
+        double[] _Result;
+        int _ID;
 
         public void SetFitness(double fitness)
         {
@@ -82,6 +86,13 @@ namespace OptimizationAlgorithms.Particles
         public void SetDimension(int dimension)
         {
             _Dimension = dimension;
+
+
+            _PersonalBestPosition = new double[dimension];
+            
+            _Velocity= new double[dimension] ;
+            _Position = new double[dimension];
+
         }
 
      

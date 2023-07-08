@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OptimizationAlgorithms.FitnessFunction
 {
-    class SumofSquaredDeviations : IFitnessFunction
+    public class SumofSquaredDeviations : IFitnessFunction
     {    
         double IFitnessFunction.Evaluate(double[] x, double[] y)
         {

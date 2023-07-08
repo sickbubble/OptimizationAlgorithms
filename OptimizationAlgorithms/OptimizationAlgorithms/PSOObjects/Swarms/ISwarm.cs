@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OptimizationAlgorithms.Swarms
 {
-    public interface ISwarm
+    public interface ISwarm 
     {
         List<IParticle> Particles { get; set; }
 
@@ -15,6 +15,7 @@ namespace OptimizationAlgorithms.Swarms
         void SetGlobalBestPosition(double[] globalBest);
 
         double [] GlobalBestPosition { get; set; }
+        double [] BestResult { get; set; }
         double  GlobalBestFitness { get; set; }
 
     }

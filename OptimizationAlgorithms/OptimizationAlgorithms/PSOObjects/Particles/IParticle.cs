@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OptimizationAlgorithms.Swarms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,10 +8,11 @@ using System.Threading.Tasks;
 namespace OptimizationAlgorithms.Particles
 {
    
-    public interface IParticle
+    public interface IParticle 
     {
         double [] PersonalBestPostion { get; set; }
 
+        int ID { get; set; }
         double Fitness { get; set; }
         double PersonalBestFitness { get; set; }
 
@@ -22,10 +24,13 @@ namespace OptimizationAlgorithms.Particles
         double [] Velocity { get; set; }
         double [] Position { get; set; }
 
+        double [] Result { get; set; }
+
         int Dimension { get;  }
         void SetDimension(int dimension);
 
         void CheckPersonalBest(double fitness);
+
 
 
 

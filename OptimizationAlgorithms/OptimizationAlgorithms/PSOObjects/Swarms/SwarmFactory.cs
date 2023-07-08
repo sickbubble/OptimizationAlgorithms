@@ -14,16 +14,16 @@ namespace OptimizationAlgorithms.Swarms
         IProduct Create();
     }
 
-    class SwarmFactory : IFactory
+   public class SwarmFactory : IFactory
     {
         public IProduct Create()
         {
             return new BaseSwarm();
         }
 
-        public LatticeModelSwarm CreateLatticeModelSwarm(List<IParticle> particles) 
+        public LatticeModelSwarm CreateLatticeModelSwarm(List<IParticle> particles,double[] targetDispProfile) 
         {
-            LatticeModelSwarm latticeSwarm = new LatticeModelSwarm(particles);
+            LatticeModelSwarm latticeSwarm = new LatticeModelSwarm(particles, targetDispProfile);
 
             return latticeSwarm;
         }

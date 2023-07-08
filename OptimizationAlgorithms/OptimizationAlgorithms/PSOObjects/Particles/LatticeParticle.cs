@@ -7,14 +7,22 @@ using System.Threading.Tasks;
 
 namespace OptimizationAlgorithms.PSOObjects.Particles
 {
-    class LatticeParticle : BaseParticle
+    public class LatticeParticle : BaseParticle
     {
         public LatticeParticle(double [] position)
         {
-            this.Position = position;
             SetDimension(position.Length);
+            this.Position = new double[position.Length] ;
+            for (int i = 0; i < position.Length; i++)
+            {
+                this.Position[i] = position[i];
+            }
+
             this.Velocity = new double[Dimension];
         }
+
+        
+
 
 
         private double[] _DisplacementProfile;

@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 
 namespace OptimizationAlgorithms.PSOObjects.Swarms
 {
-    class LatticeModelSwarm : BaseSwarm
+    public class LatticeModelSwarm : BaseSwarm
     {
-        public LatticeModelSwarm(List<IParticle> latticeParticles)
+        public LatticeModelSwarm(List<IParticle> latticeParticles,double [] targetDispProfile)
         {
             this.Particles = latticeParticles;
-
+            this.BestResult = targetDispProfile;
+            this.GlobalBestPosition = new double[latticeParticles.FirstOrDefault().Position.Length];
+            this.GlobalBestFitness = 100;
+            
         }
 
-        private double[] _TargetDisplacementProfile;
-
-        public double[] TargetDisplacementProfile { get => _TargetDisplacementProfile; set => _TargetDisplacementProfile = value; }
+  
     }
 }

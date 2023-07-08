@@ -36,7 +36,7 @@ namespace OptimizationAlgorithms.Types
 
 
         #region Observer Implementation
-        private List<IObserver> _Observers;
+        private List<IObserver> _Observers = new List<IObserver>();
         public void RegisterObserver(IObserver observer)
         {
             this._Observers.Add(observer);
@@ -56,6 +56,16 @@ namespace OptimizationAlgorithms.Types
             {
                 observer.NotifyNewGlobalBest(fitness, position);
             }
+        }
+
+        private void UpdateDisplacement(IParticle latticeParticle)
+        {
+
+            foreach (IObserver observer in _Observers)
+            {
+                observer.UpdateResult(latticeParticle);
+            }
+
         }
 
         #endregion
@@ -103,11 +113,17 @@ namespace OptimizationAlgorithms.Types
                 _Swarm.SetGlobalBestPosition(particle.PersonalBestPostion);
                 _Swarm.GlobalBestFitness = particle.Fitness;
                 NotifyNewGlobalBest(particle.Fitness, particle.Position);
+
+                if (_Swarm.GlobalBestFitness<1)
+                {
+                    NotifyConvergence(_Swarm.GlobalBestFitness);
+                }
             }
         }
         double EvaluateFitness(IParticle particle)
         {
-            var fitness = _FitnessFunction.Evaluate((particle as LatticeParticle).DisplacementProfile, (_Swarm as LatticeModelSwarm).TargetDisplacementProfile);
+            UpdateDisplacement(particle);
+            var fitness = _FitnessFunction.Evaluate((particle ).Result, (_Swarm ).BestResult);
             particle.SetFitness(fitness);
             return fitness;
         }
@@ -117,7 +133,7 @@ namespace OptimizationAlgorithms.Types
             bool runAlgorithm = true;
             foreach (var particle in _Swarm.Particles)
             {
-                _FitnessFunction.Evaluate((particle as LatticeParticle).DisplacementProfile, (_Swarm as LatticeModelSwarm).TargetDisplacementProfile);
+                _FitnessFunction.Evaluate(particle.Result, _Swarm.BestResult);
 
             }
             while (runAlgorithm)
