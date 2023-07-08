@@ -10,6 +10,10 @@ namespace OptimizationAlgorithms.FitnessFunction
 {
     public class SumofSquaredDeviations : IFitnessFunction
     {    
+        public SumofSquaredDeviations()
+        {
+
+        }
         double IFitnessFunction.Evaluate(double[] x, double[] y)
         {
             if (x.Length != y.Length)
