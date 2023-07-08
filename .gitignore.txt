@@ -1,0 +1,8 @@
+# .NET / C# specific
+*.exe
+*.dll
+*.pdb
+*.userprefs
+*.bak
+obj/
+bin/
