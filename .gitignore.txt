@@ -12,3 +12,6 @@
 # Exclude build artifacts
 bin/
 obj/
+
+# Exclude Debug folder within obj/
+obj/Debug/
