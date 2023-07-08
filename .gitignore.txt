@@ -1,8 +1,14 @@
-# .NET / C# specific
-*.exe
-*.dll
-*.pdb
-*.userprefs
-*.bak
-obj/
+# Ignore all files and directories except source code
+*
+
+# Include only source code files
+!src/
+!*.cs
+!*.vb
+!*.cpp
+!*.java
+# Add more file extensions if needed
+
+# Exclude build artifacts
 bin/
+obj/
