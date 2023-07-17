@@ -34,7 +34,6 @@ namespace OptimizationAlgorithms.Types
 
         #endregion
 
-
         #region Observer Implementation
         private List<IObserver> _Observers = new List<IObserver>();
         public void RegisterObserver(IObserver observer)
@@ -70,7 +69,6 @@ namespace OptimizationAlgorithms.Types
 
         #endregion
 
-
         #region Public Properties
 
 
@@ -91,16 +89,12 @@ namespace OptimizationAlgorithms.Types
 
         #endregion
 
-
-
         #region Singleton Implementation
         protected override PSOAlgorithm CreateInstance()
         {
             return new PSOAlgorithm();
         }
         #endregion
-
-
 
         #region Optimization Implementation
 
@@ -148,10 +142,6 @@ namespace OptimizationAlgorithms.Types
         }
         #endregion
 
-
-
-
-
         #region Inıtialize
 
         public void SetAlgorithmParams(IFitnessFunction fitnessFunction,
@@ -169,7 +159,6 @@ namespace OptimizationAlgorithms.Types
 
         #endregion
 
-
         #region PSO Specific Methods
 
 
@@ -183,13 +172,11 @@ namespace OptimizationAlgorithms.Types
         private void UpdateParticleVelocity(IParticle particle)
         {
             particle.UpdateVelocity(_InertiaWeight, _CognitiveLearningFactor, _SocialLearnigFactor, _Swarm.GlobalBestPosition);
-
         }
 
         private void UpdateParticlePosition(IParticle particle)
         {
             particle.UpdatePosition();
-
         }
 
         #endregion

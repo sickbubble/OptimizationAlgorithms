@@ -12,17 +12,6 @@ namespace OptimizationAlgorithms.Types
     {
         void NotifyConvergence(double fitness);
         void NotifyNewGlobalBest(double fitness, double[] position);
-
         void UpdateResult(IParticle particle);
-    
-
     }
-
-  
-
-    
-
-
-
-
 }

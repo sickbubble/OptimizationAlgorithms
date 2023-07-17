@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace OptimizationAlgorithms.Types
 {
-
     public interface IOptimizationAlgorithm<T> where T : class
     {
         T GetInstance();
     }
-
 
     public abstract class OptimizationAlgorithmBase<T> : IOptimizationAlgorithm<T> where T : class
     {
