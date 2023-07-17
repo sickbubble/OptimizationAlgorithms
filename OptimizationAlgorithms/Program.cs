@@ -60,7 +60,10 @@ namespace OptimizationAlgorithms
         }
 
      
-
+        /// <summary>
+        /// Fill method according to use case
+        /// </summary>
+        /// <param name="particle"></param>
         public void UpdateResult(IParticle particle)
         {
             throw new NotImplementedException();

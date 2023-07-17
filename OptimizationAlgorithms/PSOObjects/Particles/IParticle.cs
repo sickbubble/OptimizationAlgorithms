@@ -11,7 +11,6 @@ namespace OptimizationAlgorithms.Particles
     public interface IParticle 
     {
         double [] PersonalBestPostion { get; set; }
-
         int ID { get; set; }
         double Fitness { get; set; }
         double PersonalBestFitness { get; set; }
@@ -30,9 +29,6 @@ namespace OptimizationAlgorithms.Particles
         void SetDimension(int dimension);
 
         void CheckPersonalBest(double fitness);
-
-
-
 
     }
 }

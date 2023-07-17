@@ -13,7 +13,6 @@ namespace OptimizationAlgorithms.Swarms
 
         void SetGlobalBest(double globalBest);
         void SetGlobalBestPosition(double[] globalBest);
-
         double [] GlobalBestPosition { get; set; }
         double [] BestResult { get; set; }
         double  GlobalBestFitness { get; set; }

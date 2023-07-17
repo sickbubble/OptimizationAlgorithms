@@ -20,8 +20,6 @@ namespace OptimizationAlgorithms.PSOObjects.Particles
             return new BaseParticle();
         }
 
-
-
         public LatticeParticle CreateLatticleParticle(double[] position) 
         {
             LatticeParticle latticeParticle = new LatticeParticle(position);

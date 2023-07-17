@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace OptimizationAlgorithms.FitnessFunction
 {
     public class SumofSquaredDeviations : IFitnessFunction
-    {    
+    {
         public SumofSquaredDeviations()
         {
 
@@ -29,8 +29,6 @@ namespace OptimizationAlgorithms.FitnessFunction
 
             return sum;
 
-
-            
         }
     }
 }

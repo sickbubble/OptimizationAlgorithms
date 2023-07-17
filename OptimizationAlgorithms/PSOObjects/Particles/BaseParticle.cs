@@ -15,8 +15,6 @@ namespace OptimizationAlgorithms.Particles
         }
 
 
-
-
         #region IParticle Implementation
         public double[] PersonalBestPostion { get => _PersonalBestPosition; set => _PersonalBestPosition = value; }
         public double Fitness { get => _Fitness; set => _Fitness = value; }

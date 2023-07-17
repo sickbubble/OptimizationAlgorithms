@@ -21,9 +21,6 @@ namespace OptimizationAlgorithms.PSOObjects.Particles
             this.Velocity = new double[Dimension];
         }
 
-        
-
-
 
         private double[] _DisplacementProfile;
 
